@@ -1,4 +1,33 @@
+"use client";
+
+import { useEffect } from "react";
+import { useRouter } from "next/navigation";
+import { useAuth } from "@/app/context/AuthContext";
+
 export default function AdminPage() {
+  const { user, role, loading } = useAuth();
+  const router = useRouter();
+
+  useEffect(() => {
+    if (!loading && (!user || role !== "admin")) {
+      router.push("/");
+    }
+  }, [user, role, loading, router]);
+
+  if (loading) {
+    return (
+      <main className="min-h-screen px-6 py-16">
+        <div className="mx-auto max-w-5xl">
+          <p>Loading...</p>
+        </div>
+      </main>
+    );
+  }
+
+  if (!user || role !== "admin") {
+    return null;
+  }
+
   return (
     <main className="min-h-screen px-6 py-16">
       <div className="mx-auto max-w-5xl">

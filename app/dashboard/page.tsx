@@ -1,4 +1,33 @@
+"use client";
+
+import { useEffect } from "react";
+import { useRouter } from "next/navigation";
+import { useAuth } from "@/app/context/AuthContext";
+
 export default function DashboardPage() {
+  const { user, loading } = useAuth();
+  const router = useRouter();
+
+  useEffect(() => {
+    if (!loading && !user) {
+      router.push("/");
+    }
+  }, [user, loading, router]);
+
+  if (loading) {
+    return (
+      <main className="min-h-screen px-6 py-16">
+        <div className="mx-auto max-w-5xl">
+          <p>Loading...</p>
+        </div>
+      </main>
+    );
+  }
+
+  if (!user) {
+    return null;
+  }
+
   return (
     <main className="min-h-screen px-6 py-16">
       <div className="mx-auto max-w-5xl">
