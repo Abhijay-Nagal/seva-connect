@@ -33,3 +33,4 @@ Next.js
    +---- Firebase Authentication
    |
    +---- Firestore
+```
