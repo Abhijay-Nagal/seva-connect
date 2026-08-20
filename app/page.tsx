@@ -8,8 +8,8 @@ export default function Home() {
           </h1>
 
           <p className="mt-6 text-lg text-gray-400 sm:text-xl">
-            SevaConnect helps volunteers discover meaningful opportunities
-            and connect with their community.
+            SevaConnect helps volunteers discover meaningful opportunities and
+            connect with their community.
           </p>
 
           <a
