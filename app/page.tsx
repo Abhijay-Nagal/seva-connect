@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function Home() {
   return (
     <main className="min-h-screen">
@@ -12,12 +14,12 @@ export default function Home() {
             connect with their community.
           </p>
 
-          <a
+          <Link
             href="/events"
             className="mt-8 inline-block rounded-lg bg-white px-6 py-3 font-semibold text-black transition hover:bg-gray-200"
           >
             View Events
-          </a>
+          </Link>
         </div>
       </section>
     </main>
